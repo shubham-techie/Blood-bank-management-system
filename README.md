@@ -100,7 +100,7 @@ Technologies used in project are :
 
 ![](media/b67008e6759cceca736eb4fd67a1b86f.png)
 
-### Main Code/ Major Steps
+### Steps to setup AWS elastic beanstalk and RDS
 
 #### Phase I : Implementing Frontend and Backend
 #### Phase II : Initializing Elastic Beanstalk
