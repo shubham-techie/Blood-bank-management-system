@@ -1,14 +1,9 @@
-**Group Details**
+# Blood Bank Management System
 
-Shubham Jaiswal – 1902060
+#### Deployed on AWS with Elastic Beanstalk environment and RDS and S3 buckets.
+#### URL : http://bloodbankmanagement-dev.ap-south-1.elasticbeanstalk.com/
 
-Shubham Kadam – 1902066
-
-Vedant Kangde – 1902069
-
-**Blood Bank Management System**
-
-**Description of Problem Statement**
+### Description of Problem Statement
 
 With an increase in the population, there is an increase in the need for blood.
 The growing population of the world results in a lot of potential blood donors.
@@ -39,7 +34,7 @@ from a blood bank hassle-free and corruption-free and make the system of blood
 bank management effective. The main aim of developing this system is to provide
 blood to the people who need blood.
 
-**Requirement Specification**
+### Requirement Specification
 
 The ‘BLOOD BANK MANAGEMENT SYSTEM’ project is to interconnect all the blood
 banks, hospitals, donors into a single network, validation, store various data
@@ -57,7 +52,8 @@ Technologies used in project are :
     database engine.
 
 -   **Deployed on** : AWS Elastic Beanstalk environment (EB) with Simple Storage
-    Service(**S3**) buckets service to store static files.
+    Service(**S3**) buckets service to store static files. 
+    
 
 **Blood Bank Management System has three main module** –
 
@@ -95,18 +91,18 @@ Technologies used in project are :
 
 -   Approves or Rejects the blood need requests by Patient as well as Donor.
 
-**Architecture (ER) Diagram**
+### Architecture (ER) Diagram
 
 | ![](media/1a0afcf010b560eb4631e7898c1c6193.png) |
 |-------------------------------------------------|
 
-**Block Diagram**
+### Block Diagram
 
 ![](media/b67008e6759cceca736eb4fd67a1b86f.png)
 
-**Main Code/ Major Steps**
+### Main Code/ Major Steps
 
-Phase I : Implementing Frontend and Backend
+# Phase I : Implementing Frontend and Backend
 
 **Step 1**: Designing and Implementing the frontend using HTML, CSS & Bootstrap
 and Javascript.
@@ -116,7 +112,7 @@ run on server and sqlite3 database setup initially.
 
 ![](media/af85b3d423c1514cacc8a9ce35015bb2.png)
 
-Phase II : Initializing Elastic Beanstalk
+# Phase II : Initializing Elastic Beanstalk
 
 **Step 3**: Now, project is running properly on local server and we need to host
 it on AWS cloud to make it available to users. We will be working with Elastic
@@ -142,7 +138,7 @@ application.
 
 Now, our webapp has some *DNS CNAME*, which is basically URL of our website.
 
-Phase III : Configuring the Environment
+# Phase III : Configuring the Environment
 
 **Step 5**: Now, we will need to Configure the Environment i.e. some
 configuration is to be done in our root folder so that Elastic Beanstalk can
@@ -164,7 +160,7 @@ Create file *.ebextensions/01_django.config* inside root folder.
 Finally, our website will be now running on URL (CNAME), but static css and js
 files are not rendered properly.
 
-Phase IV : Configuring AWS RDS with PostgreSQL Database Engine.
+# Phase IV : Configuring AWS RDS with PostgreSQL Database Engine.
 
 **Step 8** : Create Database with PostgreSQL in AWS RDS.
 
@@ -210,7 +206,7 @@ Elastic Beanstalk and Database on AWS RDS.
 
 ![](media/dea4f2b0b9112f36c24d2afd1f8a87ff.png)
 
-Phase V : Creating Amazon Simple Storage Service (S3) bucket for File Storage
+# Phase V : Creating Amazon Simple Storage Service (S3) bucket for File Storage
 
 **Step 14** : Creating a S3 Bucket
 
@@ -264,7 +260,7 @@ Now, our Static files got uploaded on S3 bucket.
 **  
 **
 
-**Screenshots**
+### Screenshots
 
 Home page
 
@@ -342,7 +338,7 @@ Logout page
 
 ![](media/51d76b8928bafd3d2755a423280a57f7.png)
 
-**Conclusion**
+### Conclusion
 
 So, Blood Bank Management System has been successfully designed, implemented and
 hosted on Amazon Web services (AWS) Cloud Platform and is easily accessible to
@@ -351,3 +347,6 @@ instance. The project uses AWS services like Relational Database Service(RDS)
 with postgresSql Engine to maintain database of Blood Stock and manage users. It
 also uses Simple Storage Service (S3) buckets of AWS to store static files and
 is managed using Internal Access Management (IAM) policy.
+
+
+Credits : [@sumitkumar1503](https://github.com/sumitkumar1503) for opensourcing [bloodbankmanagement](https://github.com/sumitkumar1503/bloodbankmanagement.git) project
