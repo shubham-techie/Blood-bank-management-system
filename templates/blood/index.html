@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <style>
+        .xyz{
+          margin-bottom: 0px;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      </style>
+      
+</head>
+
+
+<body>
+  {% include "blood/navbar.html" %}
+<br>
+<section id="section-jumbotron" style="margin-bottom: 0px;" class="">
+  <div class="container xyz">
+     <img src='{% static "image/homepage3.jpg" %}' height=100% width=100%/> 
+      
+    </div>  
+  </section>
+
+
+  <div class="jumbotron" style="margin-top: 0px;margin-bottom: 0px; padding:20px">
+
+    <p class="lead text-center" style="font-weight: 900;">“A few drops of your Blood can help a life to Bloom.”
+      </p>
+    
+    <p class="text-center"><i>- Ibrahim Hooper</i></p>
+    
+  </div>
+  {% include "blood/footer.html" %}
+
+
+</body>
+
+</html>
