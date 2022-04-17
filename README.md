@@ -102,163 +102,11 @@ Technologies used in project are :
 
 ### Main Code/ Major Steps
 
-# Phase I : Implementing Frontend and Backend
-
-**Step 1**: Designing and Implementing the frontend using HTML, CSS & Bootstrap
-and Javascript.
-
-**Step 2**: Integrating the frontend with Django based web- framework backend to
-run on server and sqlite3 database setup initially.
-
-![](media/af85b3d423c1514cacc8a9ce35015bb2.png)
-
-# Phase II : Initializing Elastic Beanstalk
-
-**Step 3**: Now, project is running properly on local server and we need to host
-it on AWS cloud to make it available to users. We will be working with Elastic
-beanstalk to deploy our webapp.
-
-So, first installing **Elastic Beanstalk command line interface (EB CLI)** which
-allows you to perform a variety of operations to deploy and manage your Elastic
-Beanstalk applications and environments using your command prompt itself.
-
-![](media/a27ecd11052e217feaf15103fd1e71be.png)
-
-**Step 4**: Initializing Elastic Beanstalk inside the project root folder which
-will create *.elasticbeanstalk / config.yml* setup file for deploying.
-
-![](media/d7e2f29cdbeffa0658829cb24242f91b.png)
-
-![](media/b93b7e72465600f43e4d12aa18829a5b.png)
-
-Step 4: Next, creating the Elastic Beanstalk environment and deploying the
-application.
-
-![](media/498d1c669b7175d04054b4eab2c03d7d.png)
-
-Now, our webapp has some *DNS CNAME*, which is basically URL of our website.
-
-# Phase III : Configuring the Environment
-
-**Step 5**: Now, we will need to Configure the Environment i.e. some
-configuration is to be done in our root folder so that Elastic Beanstalk can
-locate our application and *settings.py* file.
-
-Create file *.ebextensions/01_django.config* inside root folder.
-
-![](media/a8e17f5fba4850df7157f3d902d8a58f.png)
-
-**Step 6**: Also, *CNAME* which got created is to be added to the
-*ALLOWED_HOSTS* in *settings.py* file.
-
-![](media/9de766e99ebba9121a45a028d70ab054.png)
-
-**Step 7**: Commit all the changes to git and deploy it.
-
-![](media/e6cea95a0c0aa537346b35ea9de67827.png)
-
-Finally, our website will be now running on URL (CNAME), but static css and js
-files are not rendered properly.
-
-# Phase IV : Configuring AWS RDS with PostgreSQL Database Engine.
-
-**Step 8** : Create Database with PostgreSQL in AWS RDS.
-
-![](media/c7318b1d46af2fa0f7c9c1d534707d8d.png)
-
-After creating RDS, check if the status is “*Available*”
-
-![](media/de929a8916592552c1702d55bb5fac97.png)
-
-**Step 9** : After the environmental update is done, EB will automatically pass
-the some DB credentials to our Django app.
-
-Now, adding these variables to our *DATABASES* in *settings.py* file.
-
-![](media/3fac155cc281cc9355ae378cb29727d5.png)
-
-**Step 10** : Next, we have to tell Elastic Beanstalk to run *makemigrations*
-and *migrate* when a new application version gets deployed. So, adding these
-containers in *.ebextensions/01_django.config file.*
-
-![](media/e25209991580cb5b558b5a3cacc52d57.png)
-
-**Step 11** : Still, admin is not created. So for that, make some *files* and
-*folders* in *blood app*.
-
-![](media/0425188298e7cb1b5801dd31bb0546f3.png)
-
-![](media/ae49875e4915e318024cee633f2c8afd.png)
-
-**Step 12** : Now again, we have to tell Elastic Beanstalk to run
-*createsuperuser* when a new application version gets deployed. So, adding these
-container in *.ebextensions/01_django.config file.*
-
-![](media/91209e921aca5c52446eb17e1d15dcf1.png)
-
-**Step 13** : Again, commit all the changes to git and deploy it, otherwise
-Elastic Beanstalk won't detect the changes if we don't commit.
-
-![](media/e6cea95a0c0aa537346b35ea9de67827.png)
-
-At this stage, Blood Bank Management System webapp is deployed on AWS cloud with
-Elastic Beanstalk and Database on AWS RDS.
-
-![](media/dea4f2b0b9112f36c24d2afd1f8a87ff.png)
-
-# Phase V : Creating Amazon Simple Storage Service (S3) bucket for File Storage
-
-**Step 14** : Creating a S3 Bucket
-
-![](media/34db7ecff0ca4e167f2b02420585cd90.png)
-
-**Step 15** : Creating an IAM group and user for S3 Bucket management.
-
-User Group
-
-![](media/0a1a93589096f35f543b574325785683.png)
-
-User
-
-![](media/291850ce8813f4bfd2eb5c077049f52c.png)
-
-(AWS will generate authentication credentials for you. Download that .csv file)
-
-**Step 16** : Setting Elastic Beanstalk S3 environment variables
-
-![](media/dc246e5f3ac615f2d30816b92defe358.png)
-
-**Step 17** : Configuring Django Static and Media Settings.
-
-Next, in order for Django to communicate with our S3 Bucket, we need to install
-the *django-storages* and *boto3* packages.
-
-![](media/50ceb518cc373e0388fdb4c79a0e3d4d.png)
-
-Next, add the newly installed app to *INSTALLED_APPS* in *settings.py*
-
-![](media/74fa03c9c24fe615081fd8ebcb920474.png)
-
-Configure django-storages to use the environmental variables passed by Elastic
-Beanstalk.
-
-![](media/cbe6b8c344ed9710d1e3e85f264d57a3.png)
-
-Lastly, we need to run the *collectstatic* command after deployment is complete,
-so add the container to the bottom of *.ebextensions/01_django.config*
-
-![](media/d22c2692862c1794f17cfa0b58e79821.png)
-
-Commit the changes to git and deploy
-
-![](media/e6cea95a0c0aa537346b35ea9de67827.png)
-
-Now, our Static files got uploaded on S3 bucket.
-
-![](media/cbc2b3efa15aada2022fefd8292c21cc.png)
-
-**  
-**
+#### Phase I : Implementing Frontend and Backend
+#### Phase II : Initializing Elastic Beanstalk
+#### Phase III : Configuring the Environment
+#### Phase IV : Configuring AWS RDS with PostgreSQL Database Engine.
+#### Phase V : Creating Amazon Simple Storage Service (S3) bucket for File Storage
 
 ### Screenshots
 
@@ -348,5 +196,7 @@ with postgresSql Engine to maintain database of Blood Stock and manage users. It
 also uses Simple Storage Service (S3) buckets of AWS to store static files and
 is managed using Internal Access Management (IAM) policy.
 
+### Reference
+[AWS Elastic beanstalk setup guide](https://testdriven.io/blog/django-elastic-beanstalk/#s3-for-file-storage) 
 
-Credits : [@sumitkumar1503](https://github.com/sumitkumar1503) for opensourcing [bloodbankmanagement](https://github.com/sumitkumar1503/bloodbankmanagement.git) project
+**Credits** : [@sumitkumar1503](https://github.com/sumitkumar1503) for opensourcing [bloodbankmanagement](https://github.com/sumitkumar1503/bloodbankmanagement.git) project
